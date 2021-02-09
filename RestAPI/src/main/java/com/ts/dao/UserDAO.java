@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 
+import com.rest.dto.ToDoTask;
 import com.rest.dto.User;
 import com.ts.db.HibernateTemplate;
 
@@ -30,5 +31,11 @@ public class UserDAO {
 	public User getUserByEmail(String email) {
 		return (User)HibernateTemplate.getObjectByEmail(email);
 	}
+	public void updateUser(User user) {
+		int res = HibernateTemplate.updateObject(user);
+		System.out.println("Updated " + res);
+		//return res;
+	}
+
 
 }

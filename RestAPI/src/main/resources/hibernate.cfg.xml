@@ -10,5 +10,7 @@
     <property name="show_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
     <mapping class="com.rest.dto.User"/>   
+	<mapping class="com.rest.dto.ItemDetails"/>
+    <mapping class="com.rest.dto.ToDoTask"/>   
   </session-factory>
 </hibernate-configuration>
