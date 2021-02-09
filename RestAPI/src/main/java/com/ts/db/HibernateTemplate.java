@@ -12,7 +12,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
-import com.rest.dto.Employee;
+//import com.rest.dto.Employee;
 import com.rest.dto.User;
 
 public class HibernateTemplate {
@@ -84,6 +84,13 @@ public class HibernateTemplate {
 		  Object queryResult = query.uniqueResult();
 		  User user = (User)queryResult;
 		  return user; 
+		}
+	public static List<Object> getObjectById(int userDetails_userId) {
+		String queryString = "from ToDoTask where userDetails_userId = :userDetails_userId";
+		  Query query = sessionFactory.openSession().createQuery(queryString);
+		  query.setInteger("userDetails_userId", userDetails_userId);
+		  //Object queryResult = query.uniqueResult();
+		  return query.list(); 
 		}
 	
 	public static List<Object> getObjectListByQuery(String query)
